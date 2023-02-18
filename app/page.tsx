@@ -1,13 +1,14 @@
-import { formatDistance } from "date-fns";
-import { MapPinIcon } from "@heroicons/react/24/outline";
+import Hero from "@/components/Hero";
 import Listings from "@/components/Listings";
-import Filters from "@/components/Filters";
 
 export default function Home() {
   return (
-    <div className="w-full mt-12 p-8 space-y-12">
+    <div className="w-full space-y-12 container mx-auto">
+      <Hero />
       <div>
-        <div className="text-center text-2xl font-semibold tracking-wide">Categories</div>
+        <div className="text-center text-2xl font-semibold tracking-wide">
+          Categories
+        </div>
       </div>
       <div className="grid grid-cols-3 gap-12 max-w-screen-xl mx-auto">
         <Card />
@@ -20,11 +21,8 @@ export default function Home() {
         </h2>
       </div>
       <div className="flex gap-12">
-
         <Listings />
-        <div className="w-80 h-120 bg-gradient-to-tl from-red-200 to-red-600">
-          
-        </div>
+        <div className="w-80 h-120 bg-gradient-to-tl from-red-200 to-red-600"></div>
       </div>
     </div>
   );
@@ -38,8 +36,3 @@ function Card() {
     </div>
   );
 }
-
-
-
-
-
