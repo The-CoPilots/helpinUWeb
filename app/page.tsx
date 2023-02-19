@@ -1,5 +1,5 @@
 // Make it a servercomponent
-'use server';
+"use server";
 
 import Banner from "@/components/Banner";
 import Hero from "@/components/Hero";
@@ -40,7 +40,7 @@ export default async function Home() {
         </div>
         <div className="flex gap-12 pb-16">
           <Listings jobs={jobs} />
-          <div className="w-80 h-120 bg-black"></div>
+          <div className="w-80 h-120 bg-[url('https://images.unsplash.com/photo-1617450365226-9bf28c04e130?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8dm9sdW50ZWVyaW5nfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=900&q=60')] bg-cover rounded-2xlgo"></div>
         </div>
       </div>
     </>
@@ -49,9 +49,9 @@ export default async function Home() {
 
 const Categories = ["Environment", "Education", "Women Empowerment"];
 const bgs = [
-  "bg-gradient-to-tr from-blue-700 via-blue-800 to-gray-900",
-  "bg-gradient-to-tr from-blue-700 via-blue-800 to-gray-900",
-  "bg-gradient-to-tr from-blue-700 via-blue-800 to-gray-900",
+  "bg-gradient-to-br from-rose-700 to-pink-600",
+  "bg-gradient-to-br from-rose-700 to-pink-600",
+  "bg-gradient-to-br from-rose-700 to-pink-600",
 ];
 
 function Card(props: { bg?: string; title?: string }) {
