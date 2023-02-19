@@ -11,9 +11,10 @@ function Hero() {
             Helping You Help Others!
           </h1>
           <p className="mt-6 text-lg text-gray-600">
-            By leveraging insights from our network of industry insiders, you’ll
-            know exactly when to buy to maximize profit, and exactly when to
-            sell to avoid painful losses.
+            We're an inclusive and diversity-focused organization, intent on
+            catering to users across all ages, backgrounds and professions,
+            making us milieu-agnostic and keeping us en route with our vision to
+            be the future of volunteering.
           </p>
           <div className="mt-6">
             <button className="text-red-600 text-lg">Learn More!</button>
