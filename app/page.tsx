@@ -1,8 +1,18 @@
 import Banner from "@/components/Banner";
 import Hero from "@/components/Hero";
 import Listings from "@/components/Listings";
+import getClient from "@/utils/dbClient";
 
-export default function Home() {
+async function fetchJobs() {
+  const client = await getClient();
+
+  const data = await client.collection("listings").find().toArray();
+  return data;
+}
+
+export default async function Home() {
+  const jobs = await fetchJobs();
+  console.log(jobs);
   return (
     <>
       <Banner />
@@ -20,11 +30,11 @@ export default function Home() {
         </div>
         <div>
           <h2 className="text-2xl tracking-tight font-bold">
-            Recent opportunities
+            New opportunities
           </h2>
         </div>
         <div className="flex gap-12">
-          <Listings />
+          <Listings jobs={jobs} />
           <div className="w-80 h-120 bg-gradient-to-tl from-red-200 to-red-600"></div>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
+import Link from "next/link";
 
 function Hero() {
   return (
@@ -36,7 +37,6 @@ const logos = [
   //   "https://tarumitra.org/wp-content/uploads/img-logo-1.png",
   "https://smilefoundationsa.org/wp-content/uploads/2022/01/logo.svg",
   "https://vectorlogoseek.com/wp-content/uploads/2018/09/make-a-wish-vector-logo.png",
-  
 ];
 
 function Partners() {
@@ -50,7 +50,6 @@ function Partners() {
           <img src={logo} alt="" className="w-32" />
         ))}
       </div>
-  
     </div>
   );
 }
@@ -63,13 +62,19 @@ function NavigationMenu() {
       </div>
       <div className="flex gap-4 divide-x">
         <div className="flex items-center">
-          <MagnifyingGlassIcon className="w-4" />
+          <Link href="/search">
+            <MagnifyingGlassIcon className="w-4" />
+          </Link>
         </div>
         <div className="space-x-4 pl-4">
-          <button className="font-medium text-red-600">Sign in</button>
-          <button className="bg-red-500 text-white px-4 py-2 rounded-lg">
-            Create your account
-          </button>
+          <Link href="/login">
+            <button className="font-medium text-red-600">Sign in</button>
+          </Link>
+          <Link href="/register">
+            <button className="bg-red-500 text-white px-4 py-2 rounded-lg">
+              Create your account
+            </button>
+          </Link>
         </div>
       </div>
     </div>
