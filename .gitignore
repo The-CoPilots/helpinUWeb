@@ -10,7 +10,7 @@ pnpm-lock.yaml
 
 # next.js
 /.next/
-data
+# data
 /out/
 
 # production
