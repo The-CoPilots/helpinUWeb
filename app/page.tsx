@@ -1,13 +1,18 @@
+// Make it a servercomponent
+'use server';
+
 import Banner from "@/components/Banner";
 import Hero from "@/components/Hero";
 import Listings from "@/components/Listings";
 import getClient from "@/utils/dbClient";
+import clsx from "clsx";
 
 async function fetchJobs() {
-  const client = await getClient();
-
-  const data = await client.collection("listings").find().toArray();
-  return data;
+  const data = require("../data/listings.json");
+  return data.listings.map((d: any) => {
+    d.datePosted = new Date(d.datePosted);
+    return d;
+  });
 }
 
 export default async function Home() {
@@ -24,29 +29,41 @@ export default async function Home() {
           </div>
         </div>
         <div className="grid grid-cols-3 gap-12 max-w-screen-xl mx-auto">
-          <Card />
-          <Card />
-          <Card />
+          {Categories.map((category, idx) => (
+            <Card title={category} bg={bgs[idx]} />
+          ))}
         </div>
         <div>
           <h2 className="text-2xl tracking-tight font-bold">
             New opportunities
           </h2>
         </div>
-        <div className="flex gap-12">
+        <div className="flex gap-12 pb-16">
           <Listings jobs={jobs} />
-          <div className="w-80 h-120 bg-gradient-to-tl from-red-200 to-red-600"></div>
+          <div className="w-80 h-120 bg-black"></div>
         </div>
       </div>
     </>
   );
 }
 
-function Card() {
+const Categories = ["Environment", "Education", "Women Empowerment"];
+const bgs = [
+  "bg-gradient-to-tr from-blue-700 via-blue-800 to-gray-900",
+  "bg-gradient-to-tr from-blue-700 via-blue-800 to-gray-900",
+  "bg-gradient-to-tr from-blue-700 via-blue-800 to-gray-900",
+];
+
+function Card(props: { bg?: string; title?: string }) {
   // Add an overlay image and text with white color
   return (
-    <div className="bg-black text-xl font-semibold text-white rounded-xl h-40 grid place-items-center">
-      Hello World
+    <div
+      className={clsx(
+        "bg-black text-xl font-semibold text-white rounded-xl h-40 grid place-items-center",
+        props.bg
+      )}
+    >
+      {props.title}
     </div>
   );
 }
