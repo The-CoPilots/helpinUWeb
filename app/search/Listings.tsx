@@ -9,38 +9,7 @@ type Job = {
     description: string;
   };
   
-  const jobs: Job[] = [
-    {
-      title: "Software Engineer",
-      location: "New York, NY",
-      description: "Student volunteer",
-      // Date 1 jan 2021
-      datePosted: new Date(2021, 0, 1),
-      iconUrl: "https://via.placeholder.com/150",
-    },
-    {
-      title: "Save Children Foundation",
-      location: "New York, NY",
-      datePosted: new Date(),
-      description: "Student volunteer",
-      iconUrl: "https://via.placeholder.com/150",
-    },
-    {
-      title: "Software Engineer",
-      location: "New York, NY",
-      datePosted: new Date(),
-      description: "Student volunteer",
-      iconUrl: "https://via.placeholder.com/150",
-    },
-    {
-      title: "Software Engineer",
-      location: "New York, NY",
-      datePosted: new Date(),
-      description: "Student volunteer",
-      // get gradient image from https://cssgradient.io/
-      iconUrl: "https://via.placeholder.com/150",
-    },
-  ];
+  
   
   interface JobProps {
     job: Job;
@@ -70,6 +39,12 @@ type Job = {
   }
 
   export default function Listings() {
+    const {listings} = require('../../data/listings.json');
+    let jobs = listings as Job[];
+    jobs.map(job => {
+      job.datePosted = new Date(job.datePosted);
+      return job;
+    })
     return (<div className="divide-y flex-grow">
         {jobs.sort((a, b) => {
           return b.datePosted.getTime() - a.datePosted.getTime();
